@@ -31,7 +31,7 @@ class LocationService : Service() {
     }
 
     private val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("http://10.0.2.2:3000/data/") // Replace with your actual server URL
+        .baseUrl("http://170.254.117.127:3000/data/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
@@ -76,8 +76,8 @@ class LocationService : Service() {
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION])
     private fun requestLocationUpdates() {
         val locationRequest = LocationRequest.create().apply {
-            interval = 1 * 1000L // 10 seconds
-            fastestInterval = 1 * 1000L // 5 seconds
+            interval = 10
+            fastestInterval = 5
             priority = LocationRequest.PRIORITY_HIGH_ACCURACY
         }
 
