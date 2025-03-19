@@ -76,8 +76,8 @@ class LocationService : Service() {
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION])
     private fun requestLocationUpdates() {
         val locationRequest = LocationRequest.create().apply {
-            interval = 10
-            fastestInterval = 5
+            interval = 60000
+            fastestInterval = 60000
             priority = LocationRequest.PRIORITY_HIGH_ACCURACY
         }
 
